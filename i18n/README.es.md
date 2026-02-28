@@ -1,50 +1,55 @@
 [English](../README.md) · [العربية](README.ar.md) · [Español](README.es.md) · [Français](README.fr.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Tiếng Việt](README.vi.md) · [中文 (简体)](README.zh-Hans.md) · [中文（繁體）](README.zh-Hant.md) · [Deutsch](README.de.md) · [Русский](README.ru.md)
 
 
+[![LazyingArt banner](https://github.com/lachlanchen/lachlanchen/raw/main/figs/banner.png)](https://github.com/lachlanchen/lachlanchen/blob/main/figs/banner.png)
+
 # Plantilla inicial de AWS Amplify para Vue.js
 
 ![Vue 3](https://img.shields.io/badge/Vue-3-42b883?logo=vue.js&logoColor=white)
 ![Vite 5](https://img.shields.io/badge/Vite-5-646cff?logo=vite&logoColor=white)
 ![Amplify Gen 2](https://img.shields.io/badge/AWS_Amplify-Gen_2-ff9900?logo=amazonaws&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?logo=typescript&logoColor=white)
-![License: MIT-0](https://img.shields.io/badge/License-MIT--0-blue.svg)
+![Node 20+](https://img.shields.io/badge/Node-20%2B-5FA04E?logo=nodedotjs&logoColor=white)
+![License: MIT-0](https://img.shields.io/badge/License-MIT--0-6F42C1.svg)
 
-Este repositorio proporciona una plantilla inicial para crear aplicaciones con Vue.js y AWS Amplify, con énfasis en una configuración sencilla para autenticación, API y capacidades de base de datos.
+---
 
-## Descripción general
+Este repositorio proporciona una plantilla inicial para crear aplicaciones con Vue.js y AWS Amplify, con un enfoque en la configuración fácil de autenticación, API y capacidades de base de datos.
 
-Esta plantilla te ofrece una aplicación base de Vue integrada con AWS Amplify, optimizada para escalabilidad y rendimiento. Es ideal para desarrolladores que quieran arrancar su proyecto con servicios de AWS ya configurados como Cognito, AppSync y DynamoDB.
+## 🎯 Visión general
 
-En el estado actual del repositorio, la app incluye dos líneas prácticas:
+Esta plantilla te da una aplicación base de Vue integrada con AWS Amplify, optimizada para escalabilidad y rendimiento. Es ideal para desarrolladores que quieran acelerar su proyecto con servicios de AWS preconfigurados como Cognito, AppSync y DynamoDB.
 
-1. Una experiencia de marketing/landing `OnlyIdeas` activa de una sola página, renderizada por `src/App.vue`.
-2. Componentes heredados/de tipo plantilla para autenticación y CRUD (`src/router/index.js`, `src/components/Ideas.vue`, `src/components/Creators.vue`, etc.) que están presentes para ampliar, pero actualmente no están conectados en `src/main.ts`.
+En su estado actual, el repositorio incluye dos flujos prácticos:
 
-### De un vistazo
+1. Una experiencia `OnlyIdeas` activa de una sola página para marketing/landing, renderizada por `src/App.vue`.
+2. Componentes autenticados y CRUD con estilo heredado/plantilla (`src/router/index.js`, `src/components/Ideas.vue`, `src/components/Creators.vue`, etc.) que están disponibles para extender, pero no están conectados actualmente en `src/main.ts`.
+
+### 🧭 De un vistazo
 
 | Área | Estado actual |
 | --- | --- |
 | Punto de entrada del frontend | `src/main.ts` monta `App.vue` directamente |
-| Stack de backend | Amplify Gen 2 (`auth` + `data`) |
+| Stack backend | Amplify Gen 2 (`auth` + `data`) |
 | Modelos de datos | `Idea` y `Creator` |
 | Modo de autenticación | Inicio de sesión por correo + autorización con Cognito User Pool |
-| CI/CD | Pipeline de Amplify Hosting mediante `amplify.yml` |
-| Archivos README i18n | Enlaces de idioma presentes; archivos en `i18n/` pendientes de completarse |
+| CI/CD | Pipeline de Amplify Hosting vía `amplify.yml` |
+| Archivos README i18n | Enlaces de idioma presentes; archivos en `i18n/` pendientes de completar |
 
-## Características
+## ✨ Características
 
-- 🔐 **Autenticación**: Configuración con Amazon Cognito para autenticación segura de usuarios.
-- ⚡ **API**: Endpoint GraphQL listo para usar con AWS AppSync.
+- 🔐 **Autenticación**: Configuración con Amazon Cognito para una autenticación de usuarios segura.
+- ⚡ **API**: Endpoint de GraphQL listo para usar con AWS AppSync.
 - 🗄️ **Base de datos**: Base de datos en tiempo real impulsada por Amazon DynamoDB.
 - 🧩 **Definiciones de backend de Amplify Gen 2**:
-  - `amplify/auth/resource.ts` define inicio de sesión por correo.
+  - `amplify/auth/resource.ts` define el inicio de sesión por correo.
   - `amplify/data/resource.ts` define los modelos `Idea` y `Creator` con autorización por propietario.
-- 🛠️ **Toolchain de frontend listo para producción**:
+- 🛠️ **Cadena de herramientas frontend lista para producción**:
   - Vue 3 + TypeScript + Vite.
-  - Scripts de type-check y build (`vue-tsc` + Vite build).
+  - Scripts de comprobación de tipos y compilación (`vue-tsc` + build de Vite).
 - 🚀 **Configuración de CI/CD de Amplify Hosting** mediante `amplify.yml`.
 
-## Estructura del proyecto
+## 🧱 Estructura del proyecto
 
 ```text
 onlyideas-aws/
@@ -57,82 +62,82 @@ onlyideas-aws/
 ├─ i18n/                       # destinos README multilingües (actualmente placeholders)
 ├─ public/
 ├─ src/
-│  ├─ App.vue                  # UI activa de landing page
-│  ├─ main.ts                  # bootstrap de app + Amplify.configure(outputs)
-│  ├─ router/index.js          # flujo de router heredado (actualmente no montado)
+│  ├─ App.vue                  # UI de landing page activa
+│  ├─ main.ts                  # arranque de app + Amplify.configure(outputs)
+│  ├─ router/index.js          # flujo de router heredado (no montado actualmente)
 │  ├─ views/Home.vue
 │  └─ components/
 │     ├─ Auth.vue
 │     ├─ Ideas.vue
 │     ├─ Creators.vue
 │     └─ Todos.vue
-├─ amplify.yml                 # pipeline de build/deploy de Amplify Hosting
+├─ amplify.yml                 # pipeline de build/despliegue de Amplify Hosting
 ├─ package.json
 └─ README.md
 ```
 
-## Requisitos previos
+## 🧰 Requisitos previos
 
-- Node.js 20+ recomendado (el proyecto usa `@tsconfig/node20` y tooling moderno de Vite).
+- Node.js 20+ recomendado (el proyecto usa `@tsconfig/node20` y herramientas modernas de Vite).
 - npm 9+.
-- Acceso a una cuenta de AWS si vas a ejecutar flujos de sandbox/deploy del backend.
+- Acceso a una cuenta de AWS si se ejecutan flujos de sandbox/despliegue del backend.
 
-## Instalación
+## 🧪 Instalación
 
 ```bash
 npm install
 ```
 
-Si planeas ejecutar la app con funcionalidad conectada al backend, primero aprovisiona o descarga los outputs de Amplify para que `amplify_outputs.json` esté disponible.
+Si planeas ejecutar la app con funcionalidad conectada al backend, provisiona o descarga primero los outputs de Amplify para que `amplify_outputs.json` esté disponible.
 
-Flujo común de backend en local:
+Flujo típico de backend local:
 
 ```bash
 npx ampx sandbox
 ```
 
-O, para despliegues de pipeline CI (ya configurados en `amplify.yml`):
+O, para despliegues de pipeline de CI (ya configurados en `amplify.yml`):
 
 ```bash
 npx ampx pipeline-deploy --branch <branch> --app-id <app-id>
 ```
 
-## Uso
+## ▶️ Uso
 
 | Tarea | Comando |
 | --- | --- |
 | Iniciar desarrollo local | `npm run dev` |
-| Compilar bundle de producción (incluye type-check) | `npm run build` |
-| Previsualizar build de producción | `npm run preview` |
-| Ejecutar solo type-check | `npm run type-check` |
+| Generar bundle de producción (incluye type-check) | `npm run build` |
+| Previsualizar el build de producción | `npm run preview` |
+| Ejecutar solo comprobación de tipos | `npm run type-check` |
 
-## Configuración
+## 🔧 Configuración
 
 ### Outputs de runtime de Amplify
 
-`src/main.ts` importa `../amplify_outputs.json` y llama a:
+`src/main.ts` importa `../amplify_outputs.json` y ejecuta:
 
 ```ts
 Amplify.configure(outputs)
 ```
 
-Si falta `amplify_outputs.json`, ejecuta primero el aprovisionamiento/pull del backend. El archivo está intencionalmente en gitignore (`amplify_outputs*`) para que cada entorno genere sus propios outputs.
+Si `amplify_outputs.json` falta, ejecuta primero el aprovisionamiento/pull del backend. Este archivo está intencionalmente en gitignore (`amplify_outputs*`) para que cada entorno genere sus propios outputs.
 
-### Esquema de backend y auth
+### Esquema de backend y autenticación
 
 - La autenticación es por correo (`amplify/auth/resource.ts`).
-- Los modelos de datos incluyen actualmente:
+- Los modelos de datos actualmente incluyen:
   - `Idea { content }`
   - `Creator { name, bio }`
 - El modo de autorización por defecto es Cognito user pool (`userPool`) con reglas basadas en propietario.
 
-### Variables de entorno
+### ⚙️ Variables de entorno
 
-Usa `.env` con claves prefijadas con `VITE_` para la configuración del frontend. Actualiza `env.d.ts` al añadir nuevas variables de entorno tipadas.
+Usa `.env` con claves prefijadas por `VITE_` para la configuración del frontend. Actualiza `env.d.ts` al añadir nuevas variables de entorno tipadas.
 
-## Ejemplos
+## 📦 Ejemplos
 
-### Comportamiento actual de la app por defecto
+### Comportamiento predeterminado actual de la app
 
 La entrada actual de la app monta `App.vue` directamente:
 
@@ -140,61 +145,68 @@ La entrada actual de la app monta `App.vue` directamente:
 createApp(App).mount('#app')
 ```
 
-Esto significa que la UI de la landing page es la experiencia de runtime por defecto.
+Esto significa que la UI de la landing page es la experiencia predeterminada en tiempo de ejecución.
 
-### Uso de componentes demo CRUD existentes
+### Uso de los componentes de demostración CRUD existentes
 
-Componentes del repositorio como `src/components/Ideas.vue` y `src/components/Creators.vue` ya muestran el uso de `generateClient<Schema>()` y `observeQuery()` para Amplify Data.
+Componentes del repositorio como `src/components/Ideas.vue` y `src/components/Creators.vue` ya muestran ejemplos de uso de `generateClient<Schema>()` y `observeQuery()` para Amplify Data.
 
-Si quieres volver a páginas autenticadas basadas en router, puedes conectar de nuevo `src/router/index.js` en `src/main.ts`. Nota: este guard de rutas usa el estilo antiguo `Auth.currentAuthenticatedUser()` y puede requerir actualizaciones según la versión de Amplify que tengas instalada.
+Si quieres pasar a páginas autenticadas basadas en router, puedes volver a enlazar `src/router/index.js` en `src/main.ts`. Nota: este guard de ruta usa el estilo antiguo `Auth.currentAuthenticatedUser()` y puede necesitar ajustes según la versión de Amplify instalada.
 
-## Despliegue en AWS
+## 🚀 Despliegue en AWS
 
-Para instrucciones detalladas sobre cómo desplegar tu aplicación, consulta la [sección de despliegue](https://docs.amplify.aws/vue/start/quickstart/#deploy-a-fullstack-app-to-aws) de nuestra documentación.
+Para instrucciones detalladas sobre cómo desplegar tu aplicación, consulta la [sección de despliegue](https://docs.amplify.aws/vue/start/quickstart/#deploy-a-fullstack-app-to-aws) de la documentación.
 
 Este repositorio también incluye la configuración de build de Amplify Hosting en `amplify.yml`.
 
-## Notas de desarrollo
+## 🧑‍💻 Notas de desarrollo
 
 - `docs/amplify-status.md` contiene una instantánea operativa de la app alojada (`onlyideas.art`).
-- Existen archivos `.old` heredados en directorios de backend/frontend; mantenlos como referencia histórica salvo que se limpien de forma intencional.
-- Actualmente no hay un harness de pruebas automatizadas configurado en `package.json`.
+- Existen archivos `.old` heredados en los directorios de backend/frontend; mantenlos como referencia histórica salvo que se limpien intencionalmente.
+- Actualmente no hay un conjunto de pruebas automatizadas configurado en `package.json`.
 
-Áreas de enfoque para verificación manual:
+Áreas de verificación manual:
 
-1. Flujo de autenticación (si habilitas/conectas la UI de auth con router).
-2. Comportamiento CRUD de ideas y creadores contra Amplify Data.
-3. Integridad del build de producción mediante `npm run build`.
+1. Flujo de autenticación (si activas y conectas la UI de autenticación con router).
+2. Comportamiento CRUD de ideas y creadores sobre Amplify Data.
+3. Integridad del build de producción a través de `npm run build`.
 
-## Solución de problemas
+## 🐞 Solución de problemas
 
 - `Cannot find module '../amplify_outputs.json'`:
-  - Genera outputs del backend con sandbox/pull de Amplify antes de iniciar la app.
+  - Genera los outputs del backend con `sandbox/pull` de Amplify antes de iniciar la app.
 - Las rutas autenticadas no funcionan:
-  - `main.ts` actualmente no monta `src/router/index.js`; esto es lo esperado en la configuración actual centrada en la landing page.
+  - `main.ts` actualmente no monta `src/router/index.js`; esto es esperado en la configuración de landing page actual.
 - El build falla por tipos:
-  - Ejecuta `npm run type-check` y corrige los problemas de TypeScript antes de compilar.
-- Problemas en despliegues de backend por CI:
-  - Valida que `AWS_BRANCH` y `AWS_APP_ID` estén disponibles en las variables de entorno de Amplify Hosting.
+  - Ejecuta `npm run type-check` y corrige los errores de TypeScript antes de generar el bundle.
+- Problemas de despliegue del backend en CI:
+  - Comprueba que `AWS_BRANCH` y `AWS_APP_ID` estén disponibles en las variables de entorno de Amplify Hosting.
 
-## Hoja de ruta
+## 🗺️ Hoja de ruta
 
-1. Completar los archivos README multilingües en `i18n/` para que coincidan con los enlaces de idioma anteriores.
-2. Decidir si el modo de app autenticada basada en router debe restaurarse como principal o archivarse como heredado.
+1. Finalizar los archivos README multilingües en `i18n/` para que coincidan con los enlaces de idioma del bloque anterior.
+2. Decidir si el modo de app autenticada basada en router debe restaurarse como principal o mantenerse como legado.
 3. Añadir pruebas automatizadas (recomendado: Vitest + Vue Test Utils).
-4. Limpiar archivos transicionales `.old` y scaffolding tutorial comentado cuando ya no sean necesarios.
-5. Habilitar endurecimientos adicionales de producción indicados en `docs/amplify-status.md` (por ejemplo, AWS WAF).
+4. Limpiar los archivos transicionales `.old` y el scaffolding tutorial comentado cuando ya no se necesiten.
+5. Habilitar refuerzos de producción adicionales señalados en `docs/amplify-status.md` (por ejemplo AWS WAF).
 
-## Contribuciones
+## 🤝 Contribuciones
 
-Las contribuciones son bienvenidas. Lee [CONTRIBUTING.md](../CONTRIBUTING.md) antes de abrir issues o pull requests.
+Las contribuciones son bienvenidas. Lee [CONTRIBUTING.md](../CONTRIBUTING.md) antes de abrir incidencias o pull requests.
 
-Este proyecto ha adoptado el [Código de Conducta de Amazon Open Source](https://aws.github.io/code-of-conduct). Para más información, consulta [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md).
+Este proyecto adopta el [Código de Conducta de AWS Open Source](https://aws.github.io/code-of-conduct). Para más información consulta [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md).
 
-## Seguridad
+## 🛡️ Seguridad
 
 Consulta [CONTRIBUTING](../CONTRIBUTING.md#security-issue-notifications) para más información.
 
 ## Licencia
 
-Esta biblioteca está licenciada bajo la licencia MIT-0. Consulta el archivo [LICENSE](../LICENSE).
+Esta librería está licenciada bajo la Licencia MIT-0. Consulta el archivo LICENSE.
+
+
+## ❤️ Support
+
+| Donate | PayPal | Stripe |
+| --- | --- | --- |
+| [![Donate](https://camo.githubusercontent.com/24a4914f0b42c6f435f9e101621f1e52535b02c225764b2f6cc99416926004b7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f6e6174652d4c617a79696e674172742d3045413545393f7374796c653d666f722d7468652d6261646765266c6f676f3d6b6f2d6669266c6f676f436f6c6f723d7768697465)](https://chat.lazying.art/donate) | [![PayPal](https://camo.githubusercontent.com/d0f57e8b016517a4b06961b24d0ca87d62fdba16e18bbdb6aba28e978dc0ea21/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f50617950616c2d526f6e677a686f754368656e2d3030343537433f7374796c653d666f722d7468652d6261646765266c6f676f3d70617970616c266c6f676f436f6c6f723d7768697465)](https://paypal.me/RongzhouChen) | [![Stripe](https://camo.githubusercontent.com/1152dfe04b6943afe3a8d2953676749603fb9f95e24088c92c97a01a897b4942/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374726970652d446f6e6174652d3633354246463f7374796c653d666f722d7468652d6261646765266c6f676f3d737472697065266c6f676f436f6c6f723d7768697465)](https://buy.stripe.com/aFadR8gIaflgfQV6T4fw400) |
